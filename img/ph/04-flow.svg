@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1600" viewBox="0 0 1500 1600">
+  <rect width="1500" height="1600" fill="#f3f5f9"/>
+  <rect x="20" y="20" width="1460" height="1560" fill="none" stroke="#b9c3d6" stroke-width="6" stroke-dasharray="24 16"/>
+  <text x="750" y="100" text-anchor="middle" font-family="Helvetica Neue, Arial, sans-serif" font-size="40" fill="#6b7590">⑥ 流れ画像（1500×1600）ここに生成画像 img/04-flow.png</text>
+  <g font-family="Helvetica Neue, Arial, sans-serif" text-anchor="middle">
+    <text x="750" y="190" font-size="30" font-weight="700" fill="#0b2a62" letter-spacing="6">FLOW</text>
+    <text x="750" y="290" font-size="84" font-weight="900" fill="#111">オープンまでの流れ</text>
+  </g>
+  <g font-family="Helvetica Neue, Arial, sans-serif">
+    <rect x="120" y="380" width="1260" height="230" rx="28" fill="#ffffff" stroke="#dfe5f0" stroke-width="4"/>
+    <circle cx="240" cy="495" r="70" fill="#0b2a62"/><text x="240" y="470" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">STEP</text><text x="240" y="535" text-anchor="middle" font-size="64" font-weight="900" fill="#fff">1</text>
+    <text x="360" y="480" font-size="52" font-weight="900" fill="#111">LINEで友だち追加</text>
+    <text x="360" y="555" font-size="34" fill="#555">ボタンから1タップ。登録は無料です。</text>
+
+    <text x="750" y="670" text-anchor="middle" font-size="60" fill="#0b2a62">▼</text>
+
+    <rect x="120" y="700" width="1260" height="230" rx="28" fill="#ffffff" stroke="#dfe5f0" stroke-width="4"/>
+    <circle cx="240" cy="815" r="70" fill="#0b2a62"/><text x="240" y="790" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">STEP</text><text x="240" y="855" text-anchor="middle" font-size="64" font-weight="900" fill="#fff">2</text>
+    <text x="360" y="800" font-size="52" font-weight="900" fill="#111">LINE限定の特典・最新情報が届く</text>
+    <text x="360" y="875" font-size="34" fill="#555">LINE登録の方だけのキャンペーン情報もお届けします。</text>
+
+    <text x="750" y="990" text-anchor="middle" font-size="60" fill="#0b2a62">▼</text>
+
+    <rect x="120" y="1020" width="1260" height="230" rx="28" fill="#ffffff" stroke="#dfe5f0" stroke-width="4"/>
+    <circle cx="240" cy="1135" r="70" fill="#0b2a62"/><text x="240" y="1110" text-anchor="middle" font-size="26" font-weight="700" fill="#fff">STEP</text><text x="240" y="1175" text-anchor="middle" font-size="64" font-weight="900" fill="#fff">3</text>
+    <text x="360" y="1120" font-size="52" font-weight="900" fill="#111">無料体験を先行予約</text>
+    <text x="360" y="1195" font-size="34" fill="#555">20〜30分・手ぶらOK。LINEから先行してご案内。</text>
+
+    <text x="750" y="1310" text-anchor="middle" font-size="60" fill="#0b2a62">▼</text>
+
+    <rect x="120" y="1340" width="1260" height="230" rx="28" fill="#c80c14" stroke="#a50a12" stroke-width="4"/>
+    <circle cx="240" cy="1455" r="70" fill="#ffffff"/><text x="240" y="1430" text-anchor="middle" font-size="26" font-weight="700" fill="#a50a12">STEP</text><text x="240" y="1495" text-anchor="middle" font-size="64" font-weight="900" fill="#a50a12">4</text>
+    <text x="360" y="1428" font-size="52" font-weight="900" fill="#fff">グランドオープン</text>
+    <text x="360" y="1492" font-size="34" fill="#fff">2026年12月予定。入会金0円でスタート。</text>
+    <text x="360" y="1545" font-size="24" fill="#fff" opacity=".9">※11月20日〜 リニューアルオープン予定</text>
+  </g>
+</svg>

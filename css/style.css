@@ -1,0 +1,279 @@
+/* ============================================================
+   プチゴル つくば店 ティザーLP v2 — スタイル（チラシ型・画像貼り付け）
+   参考：THE PORT pilates 東向島 ティザーLP の作り
+   - PC：幅750pxの1カラムを中央に置く。スマホ：100%幅（750px基準の数値を vw に換算）
+   - 画像は幅100%で縦に並べる。HTMLテキストは LINE誘導・注記・住所・コピーライトだけ
+   ★色・フォントは :root だけ直せば全体に反映。LINE緑（--color-line）はCTA専用
+   ============================================================ */
+
+/* ===== デザイントークン ===== */
+:root {
+  --color-line:       #06c755;   /* LINE公式グリーン：CTA専用（触らない） */
+  --color-line-dark:  #05a947;
+  --color-accent:     #0b2a62;   /* ブランドネイビー（ロゴ「プチゴル」の色）：見出し・ラベル */
+  --color-accent-dark:#042058;
+  --color-accent-soft:#e8eef8;   /* ネイビーの淡い地：表の強調列・アイコン地 */
+  --color-accent-light:#2f5fb8;  /* 明るいブルー：グラデーションの明るい側 */
+  --color-red:        #c80c14;   /* ブランドレッド（ロゴ「PetitGolf」の色）：価格・特典の強調 */
+  --color-red-dark:   #a50a12;
+  --color-text:       #111111;
+  --color-text-weak:  #555555;
+  --color-bg:         #ffffff;   /* 750px カラムの背景 */
+  --color-bg-tint:    #eef3fb;   /* 淡いブルー：HTMLブロックの背景（画像側の背景色と合わせる） */
+  --color-page:       #f3f5f9;   /* PCでカラムの外側に見える背景 */
+  --grad-navy:        linear-gradient(180deg, #5b8be0 0%, #2f5fb8 100%);   /* 明るいブルー→ブルーの淡めの光沢帯 */
+  --color-copy-bg:    #3b3838;   /* コピーライト帯 */
+  --color-border:     #e5e9e6;
+
+  --font-base: "M PLUS Rounded 1c", "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, system-ui, sans-serif;   /* 丸ゴシック（女性にも親しみやすいトーン） */
+  --wrap: 750px;
+  --fixed-cta-height: 96px;
+}
+
+/* ===== リセット & ベース ===== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+body {
+  min-width: 320px;
+  font-family: var(--font-base);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--color-text);
+  background: var(--color-page);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "palt";
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; text-decoration: none; }
+[hidden] { display: none !important; }
+
+/* ===== 750px カラム ===== */
+.wrap { width: var(--wrap); margin: 0 auto; background: var(--color-bg); box-shadow: 0 0 40px rgba(0, 0, 0, .06); }
+.slice img { width: 100%; }
+
+/* ===== ロゴ（FV画像の左上に小さく重ねる） ===== */
+.fv { position: relative; }
+.fv .fv-logo {
+  position: absolute; z-index: 2; top: 18px; left: 18px;
+  width: 96px; height: auto;
+  padding: 6px; border-radius: 12px;
+  background: rgba(255, 255, 255, .9);
+  box-shadow: 0 4px 14px rgba(11, 42, 98, .12);
+}
+/* 画像の上に重ねる「※画像はイメージです」（写真の右下） */
+.photo-wrap { position: relative; }
+.photo-wrap .img-note {
+  position: absolute; z-index: 2; right: 14px; bottom: 14px;
+  padding: 3px 10px; border-radius: 999px;
+  background: rgba(20, 30, 50, .55); color: #fff;
+  font-size: 15px; line-height: 1.6; font-weight: 500; letter-spacing: .02em;
+}
+.photo-wrap-feat .img-note { bottom: 10%; right: 5%; }   /* 03a は写真の下に淡い余白があるので、その分だけ上げる */
+
+/* 画像下の注記（小さく） */
+.notes { padding: 8px 40px 0; text-align: center; }
+.notes p { font-size: 11px; line-height: 1.6; color: var(--color-text-weak); }
+.notes p + p { margin-top: 2px; }
+.notes-tint { padding-bottom: 16px; background: var(--color-bg-tint); }
+
+/* ===== LINE誘導（②⑥） ===== */
+.line-add { text-align: center; padding: 80px 0 69px; }
+.line-txt { font-size: 32px; line-height: 1.7; letter-spacing: .075em; font-weight: 500; margin-bottom: 43px; }
+.line-sub { margin-top: 18px; font-size: 20px; color: var(--color-text-weak); }
+
+/* LINEボタン（参考LPのボタン画像 1100×260 → 表示 550×130 をHTMLで再現） */
+.line-btn {
+  display: flex; align-items: center; justify-content: center; gap: 22px;
+  width: 550px; height: 130px; margin: 0 auto;
+  background: var(--color-line); color: #fff;
+  border-radius: 20px;
+  font-size: 44px; font-weight: 700; letter-spacing: .04em;
+  box-shadow: 0 10px 24px rgba(6, 199, 85, .3);
+  transition: transform .15s ease, background-color .15s ease;
+}
+.line-btn:hover { background: var(--color-line-dark); transform: translateY(-2px); }
+.line-btn:active { transform: translateY(0); }
+.line-btn .ico { flex: none; width: 60px; height: 60px; }
+.line-qr { margin-top: 40px; }
+.line-qr img { width: 150px; height: 150px; margin: 0 auto; padding: 8px; border: 1px solid var(--color-border); border-radius: 12px; background: #fff; }
+.line-qr p { margin-top: 12px; font-size: 18px; color: var(--color-text-weak); }
+
+/* ===== 特典（③）：画像内の帯の上にクリックできるLINEボタンを重ねる ===== */
+.campaign { padding-bottom: 10px; background: var(--color-bg-tint); }   /* 画像の縁色（淡いブルー）で下の特徴ブロックまでつなぐ */
+/* 位置は画像（1500×1500）内の帯：左12%・上79.3%・幅76%・高さ10%。画像を作り直したら合わせて調整 */
+.campaign .line-btn-overlay {
+  position: absolute; z-index: 2;
+  left: 10.5%; top: 78.6%; width: 79%; height: 11.4%;
+  margin: 0; border-radius: 999px;
+  font-size: 40px; gap: 18px;
+  box-shadow: 0 8px 22px rgba(6, 199, 85, .35);
+}
+.campaign .line-btn-overlay .ico { width: 52px; height: 52px; }
+.note-box { padding: 4px 40px 8px; }
+.note { font-size: 20px; line-height: 1.6; color: var(--color-text-weak); text-align: center; }
+.note + .note { margin-top: 6px; }
+.note-sm { font-size: 12px; }
+
+/* ===== アクセス（⑤） ===== */
+.access { text-align: center; padding: 40px 0 110px; }
+.access-title { font-size: 44px; font-weight: 800; margin-bottom: 24px; color: var(--color-accent); }
+.access-label { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
+.address { font-size: 28px; line-height: 1.5; font-weight: 500; }
+.access-info { margin-top: 16px; font-size: 22px; line-height: 1.7; color: var(--color-text-weak); }
+.map { width: 474px; height: 440px; margin: 37px auto 0; }
+.map iframe { display: block; width: 100%; height: 100%; border: 0; }
+
+/* ===== HTMLブロック共通の見出し（⑤⑦） ===== */
+.sec-eyebrow { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: .18em; color: var(--color-accent); margin-bottom: 12px; }
+.sec-title { text-align: center; font-size: 44px; font-weight: 800; line-height: 1.35; margin-bottom: 36px; color: var(--color-accent); }
+.sp-only { display: none; }
+
+/* ===== 比較表（⑤） ===== */
+.compare { padding: 100px 40px 90px; background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-tint) 100%); }
+.compare-table { border: 1px solid #dfe6f2; border-radius: 16px; overflow: hidden; background: var(--color-bg); box-shadow: 0 12px 32px rgba(11, 42, 98, .08); }
+.compare-table table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 22px; line-height: 1.4; }
+.compare-table th, .compare-table td { padding: 18px 8px; text-align: center; vertical-align: middle; border-bottom: 1px solid var(--color-border); border-right: 1px solid var(--color-border); }
+.compare-table tr > :last-child { border-right: 0; }
+.compare-table tbody tr:last-child > * { border-bottom: 0; }
+.compare-table thead th { background: #eef1f7; font-weight: 700; font-size: 22px; line-height: 1.3; }
+.compare-table thead th.us { background: var(--grad-navy); color: #fff; font-size: 28px; text-shadow: 0 1px 2px rgba(0, 0, 0, .15); }
+.compare-table tbody th { background: #f7f9fc; font-weight: 700; font-size: 20px; line-height: 1.3; }
+.compare-table td.us { background: var(--color-accent-soft); font-weight: 700; }
+.compare-table td b { display: block; font-size: 38px; line-height: 1; margin-bottom: 8px; color: #9a9a9a; }
+.compare-table td.us b { color: var(--color-accent); }
+.compare-table td span { display: block; font-size: 19px; line-height: 1.4; color: var(--color-text-weak); }
+.compare-table td.us span { color: var(--color-text); }
+.col-item { width: 21%; }
+.col-us { width: 33%; }
+.col-other { width: 23%; }
+.compare-position { margin-top: 32px; text-align: center; font-size: 24px; line-height: 1.6; }
+.compare-position strong { display: block; margin-top: 6px; font-size: 36px; font-weight: 800; color: var(--color-red); }
+
+/* ===== よくある質問（⑦） ===== */
+.faq { padding: 100px 40px 60px; background: linear-gradient(180deg, var(--color-bg-tint) 0%, var(--color-bg) 100%); }
+.faq-list { display: grid; gap: 14px; }
+.faq-list details { background: var(--color-bg); border: 1px solid #dfe6f2; border-radius: 14px; padding: 0 26px; box-shadow: 0 8px 22px rgba(11, 42, 98, .06); }
+.faq-list summary { position: relative; list-style: none; cursor: pointer; padding: 24px 60px 24px 0; font-size: 24px; font-weight: 700; line-height: 1.5; }
+.faq-list summary::-webkit-details-marker { display: none; }
+.faq-list summary::before { content: "Q."; margin-right: 10px; color: var(--color-accent); }
+.faq-list summary::after {
+  content: "+"; position: absolute; right: 0; top: 50%; transform: translateY(-50%);
+  display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%;
+  background: var(--color-accent-soft); color: var(--color-accent); font-size: 28px; font-weight: 900;
+}
+.faq-list details[open] summary::after { content: "−"; }
+.faq-list details p { padding: 0 0 26px; font-size: 21px; line-height: 1.7; color: var(--color-text-weak); }
+
+/* ===== 注記・コピーライト（⑩） ===== */
+.caution-txt { font-size: 14px; text-align: center; color: var(--color-text-weak); margin-bottom: 37px; }
+.copy { font-size: 22px; text-align: center; background: var(--color-copy-bg); color: #fff; padding: 24px 0 21px; }
+
+/* ===== フッター固定のLINEボタン（PC・スマホ共通。750pxカラムの幅に合わせて中央固定） ===== */
+body { padding-bottom: calc(var(--fixed-cta-height) + env(safe-area-inset-bottom)); }
+.fixed-cta {
+  position: fixed; z-index: 100; left: 50%; bottom: 0; transform: translateX(-50%);
+  width: min(var(--wrap), 100%);
+  padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+  background: rgba(255, 255, 255, .96);
+  border-top: 1px solid var(--color-border);
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .10);
+}
+.line-btn-fixed {
+  position: relative; overflow: hidden;
+  width: 100%; height: 72px; gap: 14px; border-radius: 14px;
+  font-size: 26px;
+  box-shadow: 0 8px 20px rgba(6, 199, 85, .35);
+  animation: cta-shake 2.4s ease-in-out infinite;
+}
+.line-btn-fixed:hover { transform: none; }
+.line-btn-fixed .ico { width: 34px; height: 34px; }
+/* 光沢が左から右へ流れる */
+.line-btn-fixed::after {
+  content: ""; position: absolute; top: -50%; left: -60%; width: 40%; height: 200%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .45), transparent);
+  transform: skewX(-20deg);
+  animation: cta-shine 2.4s ease-in-out infinite;
+}
+/* 2.4秒に1回、ぷるっと揺れる（残りの時間は静止） */
+@keyframes cta-shake {
+  0%, 62%, 100% { transform: translateX(0) rotate(0); }
+  66% { transform: translateX(-4px) rotate(-1.2deg); }
+  70% { transform: translateX(4px) rotate(1.2deg); }
+  74% { transform: translateX(-3px) rotate(-.8deg); }
+  78% { transform: translateX(3px) rotate(.8deg); }
+  82% { transform: translateX(0) rotate(0); }
+}
+@keyframes cta-shine {
+  0%, 20% { left: -60%; }
+  55%, 100% { left: 130%; }
+}
+
+/* ============================================================
+   スマホ（〜749px）：750px基準の数値を vw に換算（値 ÷ 7.5 = vw）
+   ============================================================ */
+@media screen and (max-width: 749px) {
+  .wrap { width: 100%; box-shadow: none; }
+  :root { --fixed-cta-height: 80px; }
+
+  .fv .fv-logo { top: 2.4vw; left: 2.4vw; width: 12.8vw; padding: .8vw; border-radius: 1.6vw; }
+  .photo-wrap .img-note { right: 1.867vw; bottom: 1.867vw; padding: .4vw 1.333vw; font-size: clamp(9px, 2vw, 15px); }
+  .notes { padding: 1.067vw 5.333vw 0; }
+  .notes p { font-size: clamp(8px, 1.467vw, 11px); }
+  .notes-tint { padding-bottom: 2.133vw; }
+  .campaign { padding-bottom: 1.333vw; }
+  .campaign .line-btn-overlay { left: 10.5%; top: 78.6%; width: 79%; height: 11.4%; font-size: clamp(13px, 5.333vw, 40px); gap: 2.4vw; box-shadow: 0 1.067vw 2.933vw rgba(6, 199, 85, .35); }
+  .campaign .line-btn-overlay .ico { width: 6.933vw; height: 6.933vw; }
+  .line-add { padding: 10.667vw 0 9.2vw; }
+  .line-txt { font-size: clamp(14px, 4.267vw, 32px); margin-bottom: 5.733vw; }
+  .line-sub { margin-top: 2.4vw; font-size: clamp(11px, 2.667vw, 20px); }
+  .line-btn { width: 73.333%; height: 17.333vw; gap: 2.4vw; border-radius: 2.667vw; font-size: clamp(15px, 5.2vw, 44px); white-space: nowrap; box-shadow: 0 1.333vw 3.2vw rgba(6, 199, 85, .3); }
+  .line-btn .ico { width: 8vw; height: 8vw; }
+  .line-qr { display: none; }
+
+  .campaign { padding-bottom: 9.2vw; }
+  .note-box { padding: .533vw 5.333vw 1.067vw; }
+  .note { font-size: clamp(11px, 2.667vw, 20px); }
+  .note-sm { font-size: clamp(8px, 1.6vw, 12px); }
+
+  .access { padding: 5.333vw 0 14.667vw; }
+  .access-title { font-size: clamp(20px, 5.867vw, 44px); margin-bottom: 3.2vw; }
+  .access-label { font-size: clamp(14px, 3.733vw, 28px); margin-bottom: 1.333vw; }
+  .address { font-size: clamp(14px, 3.733vw, 28px); }
+  .access-info { margin-top: 2.133vw; font-size: clamp(12px, 2.933vw, 22px); }
+  .map { width: 86.667%; height: auto; aspect-ratio: 1 / 1; margin-top: 4.933vw; }
+
+  .sp-only { display: inline; }
+  .sec-eyebrow { font-size: clamp(11px, 2.933vw, 22px); margin-bottom: 1.6vw; }
+  .sec-title { font-size: clamp(20px, 5.867vw, 44px); margin-bottom: 4.8vw; }
+
+  .compare { padding: 13.333vw 4vw 12vw; }
+  .compare-table { border-radius: 2.133vw; }
+  .compare-table table { font-size: clamp(11px, 2.933vw, 22px); }
+  .compare-table th, .compare-table td { padding: 2.4vw .8vw; }
+  .compare-table thead th { font-size: clamp(11px, 2.933vw, 22px); }
+  .compare-table thead th.us { font-size: clamp(13px, 3.733vw, 28px); }
+  .compare-table tbody th { font-size: clamp(10px, 2.667vw, 20px); }
+  .compare-table td b { font-size: clamp(18px, 5.067vw, 38px); margin-bottom: 1.067vw; }
+  .compare-table td span { font-size: clamp(10px, 2.533vw, 19px); }
+  .compare-position { margin-top: 4.267vw; font-size: clamp(13px, 3.2vw, 24px); }
+  .compare-position strong { font-size: clamp(18px, 4.8vw, 36px); }
+
+  .faq { padding: 13.333vw 4vw 8vw; }
+  .faq-list { gap: 1.867vw; }
+  .faq-list details { border-radius: 1.867vw; padding: 0 3.467vw; }
+  .faq-list summary { padding: 3.2vw 8vw 3.2vw 0; font-size: clamp(13px, 3.2vw, 24px); }
+  .faq-list summary::after { width: 5.333vw; height: 5.333vw; font-size: clamp(14px, 3.733vw, 28px); }
+  .faq-list details p { padding: 0 0 3.467vw; font-size: clamp(12px, 2.8vw, 21px); }
+
+  .caution-txt { font-size: clamp(8px, 1.867vw, 14px); margin-bottom: 4.933vw; }
+  .copy { font-size: clamp(10px, 2.933vw, 22px); padding: 3.2vw 0 2.8vw; }
+
+  .fixed-cta { padding: 10px max(14px, env(safe-area-inset-right)) calc(10px + env(safe-area-inset-bottom)) max(14px, env(safe-area-inset-left)); }
+  .line-btn-fixed { width: 100%; height: 60px; gap: 8px; border-radius: 12px; font-size: clamp(14px, 4.1vw, 18px); letter-spacing: .02em; white-space: nowrap; box-shadow: 0 6px 16px rgba(6, 199, 85, .35); }
+  .line-btn-fixed .ico { width: 26px; height: 26px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+}

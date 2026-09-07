@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  プチゴル つくば店 ティザーLP v2（チラシ型・画像貼り付け・ビルド不要）
+  目的：LINE友だち登録（CTAはLINEのみ・フォームなし）
+  作り：幅750pxの画像（img/01-fv.jpg / 02-campaign.jpg / 03a-features.jpg / 03b-features.jpg / 04-flow.jpg）を縦に並べ、
+        LINE誘導文・比較表・FAQ・注記・住所・コピーライトはHTMLテキスト。
+  編集の基本：
+    1) 画像は img/ に同名で置けば差し替わる（未着の間は img/ph/ のワイヤー画像が出る）
+    2) LINE URL・オープン時期・特典注記は js/main.js の SITE だけ直せば全箇所に反映
+    3) 文字サイズ・色は css/style.css の :root と各ブロック
+    4) 計測（GTM ID）と公開URL（OGP）は下の「▼編集：GTM」「▼編集：公開URL」
+  ============================================================
+-->
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="robots" content="noindex, nofollow">   <!-- 仮公開用：本番では削除 -->
+
+  <!-- ▼編集：GTM（公開直前に GTM-XXXXXXX を実IDへ。head最上部に置く） -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+  <!-- ▲編集：GTM -->
+
+  <!-- ▼編集ここから（基本情報・SEO/OGP） -->
+  <title>プチゴル つくば店｜つくば駅徒歩8分のインドアゴルフ｜2026年12月1日 NEW OPEN</title>
+  <meta name="description" content="つくば駅徒歩8分に、朝5時〜24時・年中無休のインドアゴルフスタジオ「プチゴル」が2026年12月1日グランドオープン。月額定額制4,400円〜、オープン記念で入会金0円＋無料体験。LINE友だち追加で先着のお得な情報をお届けします。">
+  <meta property="og:title" content="プチゴル つくば店｜2026年12月1日 NEW OPEN">
+  <meta property="og:description" content="つくば駅徒歩8分・朝5時〜24時のインドアゴルフ。LINE友だち追加で入会金0円などの先着情報をお届け。">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="プチゴル つくば店">
+  <meta property="og:locale" content="ja_JP">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="theme-color" content="#0b2a62">
+  <!-- ▲編集ここまで -->
+
+  <!-- ▼編集：公開URL（公開先が決まったら3行とも絶対URLに。ここ以外は全て相対パス） -->
+  <link rel="canonical" href="https://example.com/lp/">
+  <meta property="og:url" content="https://example.com/lp/">
+  <meta property="og:image" content="https://example.com/lp/img/ogp.jpg">
+  <!-- ▲編集：公開URL -->
+
+  <link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css?v=13">
+</head>
+
+<body>
+  <!-- ▼編集：GTM noscript（上と同じIDに） -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- ▲編集：GTM noscript -->
+
+  <!-- LINEアイコン（各ボタンから <use href="#ico-line"> で参照） -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true" focusable="false">
+    <symbol id="ico-line" viewBox="0 0 24 24">
+      <path fill="currentColor" d="M12 3C6.48 3 2 6.58 2 11c0 2.6 1.55 4.9 3.98 6.36-.1.95-.47 2.25-.9 3.14 1.93-.32 3.57-1.18 4.62-1.9.74.13 1.51.2 2.3.2 5.52 0 10-3.58 10-8S17.52 3 12 3zm-3.2 9.6H6.4a.6.6 0 0 1-.6-.6V8.6a.6.6 0 1 1 1.2 0v2.8h1.8a.6.6 0 1 1 0 1.2zm2.2-.6a.6.6 0 1 1-1.2 0V8.6a.6.6 0 1 1 1.2 0V12zm4.9 0a.6.6 0 0 1-1.08.36l-2.02-2.7V12a.6.6 0 1 1-1.2 0V8.6a.6.6 0 0 1 1.08-.36l2.02 2.7V8.6a.6.6 0 1 1 1.2 0V12zm3.5-2.6a.6.6 0 1 1 0 1.2h-1.8v.8h1.8a.6.6 0 1 1 0 1.2h-2.4a.6.6 0 0 1-.6-.6V8.6a.6.6 0 0 1 .6-.6h2.4a.6.6 0 1 1 0 1.2h-1.8v.8h1.8z"/>
+    </symbol>
+  </svg>
+
+  <div class="wrap">
+    <main>
+
+      <!-- ▼編集ここから（① FV画像：文字は画像に焼き込み。alt に同じ文言を入れておく。左上にロゴを小さく重ねる） -->
+      <section class="slice fv">
+        <img class="fv-logo" src="img/logo.png" alt="PetitGolf プチゴル" width="400" height="557" onerror="this.hidden=true">
+        <div class="photo-wrap">
+          <img src="img/01-fv.jpg" width="1500" height="2250" fetchpriority="high"
+               alt="予告｜つくば駅徒歩8分｜2026年12月1日 NEW OPEN!｜インドアゴルフスタジオ プチゴル つくば店｜エリア最安級 月額4,400円〜（税込）"
+               onerror="this.onerror=null;this.src='img/ph/01-fv.svg'">
+          <span class="img-note">※画像はイメージです</span>
+        </div>
+        <div class="notes">
+          <p>※「最安級」は2026年9月時点・当社調べ（つくば市内のインドアゴルフ施設の月額料金を比較）。</p>
+          <p>※掲載の店内画像は生成AIで作成した完成イメージです。実際の店舗・設備とは異なります。</p>
+          <p>※実際の店内写真や詳しい情報は、近日LINEで公開予定です。</p>
+        </div>
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（② LINE誘導） -->
+      <section class="line-add">
+        <p class="line-txt">
+          オープン前の最新情報と<br>
+          LINE限定のお得なキャンペーンを随時お届け。<br>
+          ぜひ友だち追加を！
+        </p>
+        <a href="#line" class="line-btn" data-line data-cta="after-fv-line">
+          <svg class="ico" aria-hidden="true"><use href="#ico-line"/></svg><span>LINE 友だち追加する</span>
+        </a>
+        <p class="line-sub">友だち追加は無料です</p>
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（③ オープン記念特典：画像＋注記。画像内の青い帯の上にクリックできるLINEボタンを重ねる） -->
+      <section class="slice campaign">
+        <div class="photo-wrap">
+          <img src="img/02-campaign.jpg" width="1500" height="1500" loading="lazy"
+               alt="オープン記念特典｜入会金 通常22,000円が0円※＋無料体験"
+               onerror="this.onerror=null;this.src='img/ph/02-campaign.svg'">
+          <!-- 画像内の帯（LINE友だち追加の方限定！…）の位置に重ねる本物のボタン。位置は css/style.css の .campaign .line-btn-overlay -->
+          <a href="#line" class="line-btn line-btn-overlay" data-line data-cta="campaign-band-line">
+            <svg class="ico" aria-hidden="true"><use href="#ico-line"/></svg><span>LINE 友だち追加する</span>
+          </a>
+        </div>
+        <div class="note-box">
+          <p class="note note-sm" data-text="campaignNote">※入会金0円は6ヶ月間のご継続が条件です（6ヶ月未満のご退会は違約金22,000円）。</p>
+        </div>
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（④ 特徴画像：03a＝見出し＋施設イメージ、03b＝POINT 1〜8のカード8枚。カードを1枚の画像にまとめて大きさ・余白を揃える） -->
+      <section class="slice features">
+        <div class="photo-wrap photo-wrap-feat">
+          <img src="img/03a-features.jpg" width="1498" height="1459" loading="lazy"
+               alt="プチゴル つくば店のおすすめポイント8選（施設イメージ）"
+               onerror="this.onerror=null;this.src='img/ph/03-features.svg'">
+          <span class="img-note">※画像はイメージです</span>
+        </div>
+        <img src="img/03b-features.jpg" width="1498" height="2219" loading="lazy"
+             alt="POINT1 朝5時〜24時、年中無休／POINT2 つくばエリア最安級 月々4,400円〜／POINT3 全5打席。プライベートな個室も（個室2打席は同伴OK・最大3名、オープン3打席）／POINT4 高性能シミュレーター完備（弾道データとスイング動画をもとに効率よく上達）／POINT5 国内外240コース以上でラウンド／POINT6 プロのレッスンも受けられる／POINT7 手ぶらでOK（クラブ・グローブ無料貸出）／POINT8 ソファでくつろげるラウンジ（ドリンク無料・Wi-Fi・ロッカー）"
+             onerror="this.onerror=null;this.hidden=true">
+        <div class="notes notes-tint">
+          <p>※掲載の店内画像は生成AIで作成した完成イメージです。実際の店舗・設備とは異なります。</p>
+          <p>※実際の店内写真や詳しい情報は、近日LINEで公開予定です。</p>
+        </div>
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（⑤ 比較表：打ちっぱなし・スクールとの違い。HTMLなので文言・記号はここで直す） -->
+      <section class="compare">
+        <p class="sec-eyebrow">COMPARE</p>
+        <h2 class="sec-title">打ちっぱなし・スクールと、<br class="sp-only">何が違う？</h2>
+        <div class="compare-table">
+          <table>
+            <colgroup>
+              <col class="col-item">
+              <col class="col-us">
+              <col class="col-other">
+              <col class="col-other">
+            </colgroup>
+            <thead>
+              <tr><th>項目</th><th class="us">プチゴル</th><th>打ちっぱなし</th><th>ゴルフ<br>スクール</th></tr>
+            </thead>
+            <tbody>
+              <tr><th>料金</th><td class="us"><b>◎</b><span>月額定額制<br>4,400円〜</span></td><td><b>△</b><span>打つほど<br>球代がかさむ</span></td><td><b>✕</b><span>高め</span></td></tr>
+              <tr><th>時間の<br>自由</th><td class="us"><b>◎</b><span>朝5時〜24時<br>年中無休・予約制</span></td><td><b>△</b><span>混雑・営業時間<br>次第</span></td><td><b>△</b><span>レッスン時間が<br>固定</span></td></tr>
+              <tr><th>天候</th><td class="us"><b>◎</b><span>屋内で<br>いつでも快適</span></td><td><b>✕</b><span>雨・暑さ寒さの<br>影響大</span></td><td><b>◯</b><span>屋内が多い</span></td></tr>
+              <tr><th>上達の<br>しやすさ</th><td class="us"><b>◎</b><span>弾道データと<br>スイング動画で<br>弱点が分かる</span></td><td><b>△</b><span>自己流に<br>なりやすい</span></td><td><b>◎</b><span>コーチが指導</span></td></tr>
+              <tr><th>ラウンド<br>練習</th><td class="us"><b>◎</b><span>240コース以上を<br>シミュレーターで</span></td><td><b>✕</b><span>できない</span></td><td><b>△</b><span>スクール次第</span></td></tr>
+              <tr><th>手ぶら</th><td class="us"><b>◎</b><span>クラブ・グローブ<br>無料レンタル</span></td><td><b>△</b><span>レンタルは<br>有料が多い</span></td><td><b>◯</b><span>貸出ありが多い</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="compare-position">スクールの「上達」× 打ちっぱなしの「気軽さ」<br><strong>いいとこ取りが、プチゴル。</strong></p>
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（⑥ オープンまでの流れ画像：4STEP） -->
+      <section class="slice flow">
+        <img src="img/04-flow.jpg" width="1500" height="1500" loading="lazy"
+             alt="オープンまでの流れ｜STEP1 LINEで友だち追加／STEP2 LINE限定の特典・最新情報が届く／STEP3 無料体験を先行予約／STEP4 グランドオープン（2026年12月1日・11月20日〜リニューアルオープン予定）"
+             onerror="this.onerror=null;this.src='img/ph/04-flow.svg'">
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（⑦ よくある質問） -->
+      <section class="faq">
+        <p class="sec-eyebrow">FAQ</p>
+        <h2 class="sec-title">よくあるご質問</h2>
+        <div class="faq-list">
+          <details>
+            <summary>初心者でも大丈夫ですか？</summary>
+            <p>はい、大歓迎です。無料体験では、施設の使い方やシミュレーターの操作をスタッフがご案内します。クラブ・グローブは無料でお貸ししますので、手ぶらでお越しください。</p>
+          </details>
+          <details>
+            <summary>手ぶらで行けますか？</summary>
+            <p>はい。メンズ・レディース・ジュニア用のクラブとグローブを無料でレンタルできます。動きやすい服装でお越しください。</p>
+          </details>
+          <details>
+            <summary>予約は必要ですか？</summary>
+            <p>はい、予約制です（1コマ60分）。スマホからいつでも予約でき、空きがあれば当日のご利用も可能です。</p>
+          </details>
+          <details>
+            <summary>個室は何人まで利用できますか？</summary>
+            <p>個室打席は、ご本人のほか同伴者2名まで（計3名）ご利用いただけます。同伴の追加料金はかかりません。個室のご利用条件はプランにより異なりますので、詳しくはLINEでご案内します。</p>
+          </details>
+          <details>
+            <summary>駐車場・駐輪場はありますか？</summary>
+            <p>はい、駐車場・駐輪場をご用意しています。つくば駅からも徒歩8分なので、電車でも車でも自転車でも通いやすい立地です。</p>
+          </details>
+          <details>
+            <summary>入会するにはどうすればいいですか？</summary>
+            <p>まずはLINEで友だち追加をお願いします。無料体験のご予約方法や入会のお手続きを、オープン前にLINEでご案内します。</p>
+          </details>
+        </div>
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（⑧ アクセス） -->
+      <section class="access">
+        <h2 class="access-title">つくば駅 徒歩8分！</h2>
+        <p class="access-label">【住所】</p>
+        <p class="address">〒305-0032 茨城県つくば市竹園1-9-2<br>デイズタウン1F</p>
+        <p class="access-info">駐車場・駐輪場あり<br>営業時間 5:00〜24:00（年中無休・予約制）</p>
+        <div class="map">
+          <iframe src="https://www.google.com/maps?q=%E8%8C%A8%E5%9F%8E%E7%9C%8C%E3%81%A4%E3%81%8F%E3%81%B0%E5%B8%82%E7%AB%B9%E5%9C%921-9-2&amp;output=embed" title="プチゴル つくば店の地図" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（⑨ LINE誘導・再掲。LINE未設定時は各ボタンがここへスクロールする） -->
+      <section class="line-add" id="line">
+        <p class="line-txt">
+          オープン前の最新情報と<br>
+          LINE限定のお得なキャンペーンを随時お届け。<br>
+          ぜひ友だち追加を！
+        </p>
+        <a href="#line" class="line-btn" data-line data-cta="after-access-line">
+          <svg class="ico" aria-hidden="true"><use href="#ico-line"/></svg><span>LINE 友だち追加する</span>
+        </a>
+        <p class="line-sub">友だち追加は無料です</p>
+        <div class="line-qr">
+          <!-- 編集：LINE公式アカウント管理画面のQR画像を img/line-qr.png に置くと表示（PCのみ） -->
+          <img src="img/line-qr.png" alt="LINE友だち追加QRコード" width="150" height="150" loading="lazy" onerror="this.parentNode.hidden=true">
+          <p>PCの方はQRコードを読み取ってください</p>
+        </div>
+      </section>
+      <!-- ▲編集ここまで -->
+
+      <!-- ▼編集ここから（⑩ 注記） -->
+      <p class="caution-txt">※画像はイメージです。※記載の価格はすべて税込です。</p>
+      <!-- ▲編集ここまで -->
+
+    </main>
+
+    <p class="copy">&copy; <span id="year"></span> SYNC POWER Inc.</p>
+  </div>
+
+  <!-- フッター固定のLINEボタン（PC・スマホ共通。動き：2.4秒ごとに揺れ＋光沢。不要なら <nav> ごと削除） -->
+  <nav class="fixed-cta" aria-label="LINE友だち追加">
+    <a href="#line" class="line-btn line-btn-fixed" data-line data-cta="bar-line">
+      <svg class="ico" aria-hidden="true"><use href="#ico-line"/></svg><span>LINE 友だち追加する</span>
+    </a>
+  </nav>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
