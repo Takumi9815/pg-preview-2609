@@ -1,36 +1,28 @@
-/* ============================================================
-   プチゴル つくば店 ティザーLP v2 — スタイル（チラシ型・画像貼り付け）
-   参考：THE PORT pilates 東向島 ティザーLP の作り
-   - PC：幅750pxの1カラムを中央に置く。スマホ：100%幅（750px基準の数値を vw に換算）
-   - 画像は幅100%で縦に並べる。HTMLテキストは LINE誘導・注記・住所・コピーライトだけ
-   ★色・フォントは :root だけ直せば全体に反映。LINE緑（--color-line）はCTA専用
-   ============================================================ */
 
-/* ===== デザイントークン ===== */
+
 :root {
-  --color-line:       #06c755;   /* LINE公式グリーン：CTA専用（触らない） */
+  --color-line:       #06c755;   
   --color-line-dark:  #05a947;
-  --color-accent:     #0b2a62;   /* ブランドネイビー（ロゴ「プチゴル」の色）：見出し・ラベル */
+  --color-accent:     #0b2a62;   
   --color-accent-dark:#042058;
-  --color-accent-soft:#e8eef8;   /* ネイビーの淡い地：表の強調列・アイコン地 */
-  --color-accent-light:#2f5fb8;  /* 明るいブルー：グラデーションの明るい側 */
-  --color-red:        #c80c14;   /* ブランドレッド（ロゴ「PetitGolf」の色）：価格・特典の強調 */
+  --color-accent-soft:#e8eef8;   
+  --color-accent-light:#2f5fb8;  
+  --color-red:        #c80c14;   
   --color-red-dark:   #a50a12;
   --color-text:       #111111;
   --color-text-weak:  #555555;
-  --color-bg:         #ffffff;   /* 750px カラムの背景 */
-  --color-bg-tint:    #eef3fb;   /* 淡いブルー：HTMLブロックの背景（画像側の背景色と合わせる） */
-  --color-page:       #f3f5f9;   /* PCでカラムの外側に見える背景 */
-  --grad-navy:        linear-gradient(180deg, #5b8be0 0%, #2f5fb8 100%);   /* 明るいブルー→ブルーの淡めの光沢帯 */
-  --color-copy-bg:    #3b3838;   /* コピーライト帯 */
+  --color-bg:         #ffffff;   
+  --color-bg-tint:    #eef3fb;   
+  --color-page:       #f3f5f9;   
+  --grad-navy:        linear-gradient(180deg, #5b8be0 0%, #2f5fb8 100%);   
+  --color-copy-bg:    #3b3838;   
   --color-border:     #e5e9e6;
 
-  --font-base: "M PLUS Rounded 1c", "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, system-ui, sans-serif;   /* 丸ゴシック（女性にも親しみやすいトーン） */
+  --font-base: "M PLUS Rounded 1c", "Zen Maru Gothic", "Hiragino Maru Gothic ProN", "Hiragino Sans", "Yu Gothic", Meiryo, system-ui, sans-serif;   
   --wrap: 750px;
   --fixed-cta-height: 96px;
 }
 
-/* ===== リセット & ベース ===== */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 body {
@@ -47,11 +39,9 @@ img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 [hidden] { display: none !important; }
 
-/* ===== 750px カラム ===== */
 .wrap { width: var(--wrap); margin: 0 auto; background: var(--color-bg); box-shadow: 0 0 40px rgba(0, 0, 0, .06); }
 .slice img { width: 100%; }
 
-/* ===== ロゴ（FV画像の左上に小さく重ねる） ===== */
 .fv { position: relative; }
 .fv .fv-logo {
   position: absolute; z-index: 2; top: 18px; left: 18px;
@@ -60,7 +50,7 @@ a { color: inherit; text-decoration: none; }
   background: rgba(255, 255, 255, .9);
   box-shadow: 0 4px 14px rgba(11, 42, 98, .12);
 }
-/* 画像の上に重ねる「※画像はイメージです」（写真の右下） */
+
 .photo-wrap { position: relative; }
 .photo-wrap .img-note {
   position: absolute; z-index: 2; right: 14px; bottom: 14px;
@@ -68,20 +58,17 @@ a { color: inherit; text-decoration: none; }
   background: rgba(20, 30, 50, .55); color: #fff;
   font-size: 15px; line-height: 1.6; font-weight: 500; letter-spacing: .02em;
 }
-.photo-wrap-feat .img-note { bottom: 10%; right: 5%; }   /* 03a は写真の下に淡い余白があるので、その分だけ上げる */
+.photo-wrap-feat .img-note { bottom: 10%; right: 5%; }   
 
-/* 画像下の注記（小さく） */
 .notes { padding: 8px 40px 0; text-align: center; }
 .notes p { font-size: 11px; line-height: 1.6; color: var(--color-text-weak); }
 .notes p + p { margin-top: 2px; }
 .notes-tint { padding-bottom: 16px; background: var(--color-bg-tint); }
 
-/* ===== LINE誘導（②⑥） ===== */
 .line-add { text-align: center; padding: 80px 0 69px; }
 .line-txt { font-size: 32px; line-height: 1.7; letter-spacing: .075em; font-weight: 500; margin-bottom: 43px; }
 .line-sub { margin-top: 18px; font-size: 20px; color: var(--color-text-weak); }
 
-/* LINEボタン（参考LPのボタン画像 1100×260 → 表示 550×130 をHTMLで再現） */
 .line-btn {
   display: flex; align-items: center; justify-content: center; gap: 22px;
   width: 550px; height: 130px; margin: 0 auto;
@@ -98,9 +85,8 @@ a { color: inherit; text-decoration: none; }
 .line-qr img { width: 150px; height: 150px; margin: 0 auto; padding: 8px; border: 1px solid var(--color-border); border-radius: 12px; background: #fff; }
 .line-qr p { margin-top: 12px; font-size: 18px; color: var(--color-text-weak); }
 
-/* ===== 特典（③）：画像内の帯の上にクリックできるLINEボタンを重ねる ===== */
-.campaign { padding-bottom: 10px; background: var(--color-bg-tint); }   /* 画像の縁色（淡いブルー）で下の特徴ブロックまでつなぐ */
-/* 位置は画像（1500×1500）内の帯：左12%・上79.3%・幅76%・高さ10%。画像を作り直したら合わせて調整 */
+.campaign { padding-bottom: 10px; background: var(--color-bg-tint); }   
+
 .campaign .line-btn-overlay {
   position: absolute; z-index: 2;
   left: 10.5%; top: 78.6%; width: 79%; height: 11.4%;
@@ -114,7 +100,6 @@ a { color: inherit; text-decoration: none; }
 .note + .note { margin-top: 6px; }
 .note-sm { font-size: 12px; }
 
-/* ===== アクセス（⑤） ===== */
 .access { text-align: center; padding: 40px 0 110px; }
 .access-title { font-size: 44px; font-weight: 800; margin-bottom: 24px; color: var(--color-accent); }
 .access-label { font-size: 28px; font-weight: 700; margin-bottom: 10px; }
@@ -123,12 +108,10 @@ a { color: inherit; text-decoration: none; }
 .map { width: 474px; height: 440px; margin: 37px auto 0; }
 .map iframe { display: block; width: 100%; height: 100%; border: 0; }
 
-/* ===== HTMLブロック共通の見出し（⑤⑦） ===== */
 .sec-eyebrow { text-align: center; font-size: 22px; font-weight: 700; letter-spacing: .18em; color: var(--color-accent); margin-bottom: 12px; }
 .sec-title { text-align: center; font-size: 44px; font-weight: 800; line-height: 1.35; margin-bottom: 36px; color: var(--color-accent); }
 .sp-only { display: none; }
 
-/* ===== 比較表（⑤） ===== */
 .compare { padding: 100px 40px 90px; background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-bg-tint) 100%); }
 .compare-table { border: 1px solid #dfe6f2; border-radius: 16px; overflow: hidden; background: var(--color-bg); box-shadow: 0 12px 32px rgba(11, 42, 98, .08); }
 .compare-table table { width: 100%; border-collapse: collapse; table-layout: fixed; font-size: 22px; line-height: 1.4; }
@@ -149,7 +132,6 @@ a { color: inherit; text-decoration: none; }
 .compare-position { margin-top: 32px; text-align: center; font-size: 24px; line-height: 1.6; }
 .compare-position strong { display: block; margin-top: 6px; font-size: 36px; font-weight: 800; color: var(--color-red); }
 
-/* ===== よくある質問（⑦） ===== */
 .faq { padding: 100px 40px 60px; background: linear-gradient(180deg, var(--color-bg-tint) 0%, var(--color-bg) 100%); }
 .faq-list { display: grid; gap: 14px; }
 .faq-list details { background: var(--color-bg); border: 1px solid #dfe6f2; border-radius: 14px; padding: 0 26px; box-shadow: 0 8px 22px rgba(11, 42, 98, .06); }
@@ -164,11 +146,9 @@ a { color: inherit; text-decoration: none; }
 .faq-list details[open] summary::after { content: "−"; }
 .faq-list details p { padding: 0 0 26px; font-size: 21px; line-height: 1.7; color: var(--color-text-weak); }
 
-/* ===== 注記・コピーライト（⑩） ===== */
 .caution-txt { font-size: 14px; text-align: center; color: var(--color-text-weak); margin-bottom: 37px; }
 .copy { font-size: 22px; text-align: center; background: var(--color-copy-bg); color: #fff; padding: 24px 0 21px; }
 
-/* ===== フッター固定のLINEボタン（PC・スマホ共通。750pxカラムの幅に合わせて中央固定） ===== */
 body { padding-bottom: calc(var(--fixed-cta-height) + env(safe-area-inset-bottom)); }
 .fixed-cta {
   position: fixed; z-index: 100; left: 50%; bottom: 0; transform: translateX(-50%);
@@ -187,14 +167,14 @@ body { padding-bottom: calc(var(--fixed-cta-height) + env(safe-area-inset-bottom
 }
 .line-btn-fixed:hover { transform: none; }
 .line-btn-fixed .ico { width: 34px; height: 34px; }
-/* 光沢が左から右へ流れる */
+
 .line-btn-fixed::after {
   content: ""; position: absolute; top: -50%; left: -60%; width: 40%; height: 200%;
   background: linear-gradient(120deg, transparent, rgba(255, 255, 255, .45), transparent);
   transform: skewX(-20deg);
   animation: cta-shine 2.4s ease-in-out infinite;
 }
-/* 2.4秒に1回、ぷるっと揺れる（残りの時間は静止） */
+
 @keyframes cta-shake {
   0%, 62%, 100% { transform: translateX(0) rotate(0); }
   66% { transform: translateX(-4px) rotate(-1.2deg); }
@@ -208,9 +188,6 @@ body { padding-bottom: calc(var(--fixed-cta-height) + env(safe-area-inset-bottom
   55%, 100% { left: 130%; }
 }
 
-/* ============================================================
-   スマホ（〜749px）：750px基準の数値を vw に換算（値 ÷ 7.5 = vw）
-   ============================================================ */
 @media screen and (max-width: 749px) {
   .wrap { width: 100%; box-shadow: none; }
   :root { --fixed-cta-height: 80px; }
