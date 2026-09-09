@@ -45,10 +45,7 @@ a { color: inherit; text-decoration: none; }
 .fv { position: relative; }
 .fv .fv-logo {
   position: absolute; z-index: 2; top: 18px; left: 18px;
-  width: 96px; height: auto;
-  padding: 6px; border-radius: 12px;
-  background: rgba(255, 255, 255, .9);
-  box-shadow: 0 4px 14px rgba(11, 42, 98, .12);
+  width: 96px; height: auto;   
 }
 
 .photo-wrap { position: relative; }
@@ -192,7 +189,7 @@ body { padding-bottom: calc(var(--fixed-cta-height) + env(safe-area-inset-bottom
   .wrap { width: 100%; box-shadow: none; }
   :root { --fixed-cta-height: 80px; }
 
-  .fv .fv-logo { top: 2.4vw; left: 2.4vw; width: 12.8vw; padding: .8vw; border-radius: 1.6vw; }
+  .fv .fv-logo { top: 2.933vw; left: 2.933vw; width: 20vw; }
   .photo-wrap .img-note { right: 1.867vw; bottom: 1.867vw; padding: .4vw 1.333vw; font-size: clamp(9px, 2vw, 15px); }
   .notes { padding: 1.067vw 5.333vw 0; }
   .notes p { font-size: clamp(8px, 1.467vw, 11px); }
