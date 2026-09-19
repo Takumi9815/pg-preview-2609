@@ -3,7 +3,7 @@
 // ▼編集ここから（サイト設定：ここを直せば全ページに反映）
 var SITE = {
   // LINE公式アカウントの友だち追加URL。LINE管理画面「友だち追加経路」で発行した計測用URLを入れる
-  // （生の lin.ee は使わない。経路の作り方は line-official/09-tracking.md）
+  // （アカウント基本の lin.ee ではなく、LINE管理画面の「友だち追加経路」で発行したURLを使う）
   // lineUrl は 経路「Webサイト」＝utm無しの訪問者（直接・SNS・自然検索）。ティザーLP・本サイト共通。2026-09-19 発行
   // ※アカウント基本の友だち追加URL（https://lin.ee/uzM1L9C）は経路別に数えられないので使わない
   lineUrl: 'https://lin.ee/qUmVn6e',
